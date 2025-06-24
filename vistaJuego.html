@@ -43,8 +43,7 @@
                         <a href="#">Ayuda</a> 
                     </div>
                 </div>            
-        </nav>
-        
+        </nav>       
     <!-- Contenedor del panal -->
         <div class="panal">   
             <div class="panalColumna panalColumna1">
@@ -77,7 +76,6 @@
                 <div class="hexagon" id="hex-5-3"></div>
             </div>
         </div>
-
     <!-- Vista capsula -->
         <div class="vista-capsula oculto">
             <div>
@@ -87,9 +85,10 @@
                 <h1>Seguros y Protección Financiera</h1>
             </div>
             <div class="parrafo">
-                <p class="texto-capsula">Seguro de Vida
+                <div class="texto-capsula">
+                    <div class="subtitulo">Seguro de Vida: </div>
                     Un seguro de vida es un contrato con una compañía aseguradora. Tú pagas una prima (monto fijo) y a cambio la aseguradora entrega dinero a las personas que tú defines si falleces.  Contratarlo de joven suele ser más barato y ayuda a proteger el futuro de tu familia
-                </p>
+                </div>
                 <img src="" alt="Foto X"><!-- Foto del personaje para rellenar, no es la correspondiente--> 
             </div>
             <div class="parrafo">
@@ -99,7 +98,9 @@
                 <img src="" alt="Foto X"><!-- Foto del personaje para rellenar, no es la correspondiente--> 
             </div>
             <div class="parrafo">
-                <p class="texto-capsula">Información de la capsula</p>
+                <p class="texto-capsula">
+                    Contratarlo de joven suele ser más barato y ayuda a proteger el futuro de tu familia.
+                </p>
                 <img src="" alt="Foto X"><!-- Foto del personaje para rellenar, no es la correspondiente--> 
             </div>
 
@@ -113,31 +114,41 @@
                 <button class="cerrar cerrar-pregunta btn btn-outline-dark">X</button><!-- El boton para cerrar la pestaña de la pregunta.--> 
             </div>
             <aside class="lateral-izq">
-                <p class="mensaje">Mensaje de motivación</p> <!-- Aquí debe estar el mensaje motivacional--> 
+                <p class="mensaje">Cada pregunta es una oportunidad para brillar. ¡Dale Con todo!</p> <!-- Aquí debe estar el mensaje motivacional--> 
                 <img src="./img/abeja.png"> <!-- Aquí debe adjuntarse la foto del personaje--> 
             </aside>
 
             <div class="lateral-der">
                 <div class="total-pregunta">
                     <div class="pregunta">
-                        <h1 class="texto-pregunta">Pregunta 1. ¿bzz bzz bzz ....? asfhjkcvwsechwevchjkwevrfjh wvfjwh vefjhwev fjhewfvj</h1>
+                        <h1 class="texto-pregunta">
+                            Pregunta 1. ¿Cuál es la función principal de un seguro de vida?
+                        </h1>
                     </div>
                     <ul class="lista-alternativas">
                         <li class="alternativa">
                             <input type="radio" id="opcionA" name="pregunta" value="a">
-                            <label for="opcionA" class="texto-alternativa">Alternativa a</label>
+                            <label for="opcionA" class="texto-alternativa"> 
+                                Cubrir tus gastos médicos cuando te enfermes.
+                            </label>
                         </li>
                         <li class="alternativa">
                             <input type="radio" id="opcionB" name="pregunta" value="b">
-                            <label for="opcionB" class="texto-alternativa">Alternativa b</label>
+                            <label for="opcionB" class="texto-alternativa">
+                                Pagar una suma de dinero a tus beneficiarios si falleces.
+                            </label>
                         </li>
                         <li class="alternativa">
                             <input type="radio" id="opcionC" name="pregunta" value="c">
-                            <label for="opcionC" class="texto-alternativa">Alternativa c</label>
+                            <label for="opcionC" class="texto-alternativa">
+                                Reparar tu auto después de un choque.
+                            </label>
                         </li>
                         <li class="alternartiva">
                             <input type="radio" id="opcionD" name="pregunta" value="d">
-                            <label for="opcionD" class="texto-alternativa">Alternativa d</label>
+                            <label for="opcionD" class="texto-alternativa">
+                                Asegurar tu casa contra robos.
+                            </label>
                         </li>
                     </ul>
                 </div>

@@ -1,0 +1,33 @@
+/* Animación de abejas volando */
+.bee-fly {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    z-index: 9999;
+    pointer-events: none;
+    animation: bee-fly-anim 1.5s cubic-bezier(.4,2,.6,.9) forwards;
+}
+@keyframes bee-fly-anim {
+    0%   { left: 50%; top: 60%; opacity: 0; transform: scale(0.5) rotate(-20deg);}
+    20%  { opacity: 1; }
+    60%  { left: 60%; top: 30%; opacity: 1; }
+    100% { left: 100vw; top: 10vh; opacity: 0; transform: scale(1.2) rotate(30deg);}
+}
+/* Animación de fade */
+.fade-out {
+    animation: fadeOut 0.8s forwards;
+}
+.fade-in {
+    animation: fadeIn 1s forwards;
+}
+@keyframes fadeOut {
+    to { opacity: 0; pointer-events: none; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* Oculto por defecto */
+.oculto {
+    display: none !important;
+}
