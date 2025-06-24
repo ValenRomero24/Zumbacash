@@ -108,7 +108,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const vistaCapsula = document.querySelector('.vista-capsula'); // NUEVO
     const panal = document.querySelector('.panal');
     const botonCerrarInicial = document.querySelector('.cerrar-inicial');
-    const botonCerrar = document.querySelector('.cerrar');
+    const botonCerrarPregunta = document.querySelector('.cerrar-pregunta');
+    const botonLeido = document.querySelector('.boton-leido')
 
     hexagonos.forEach(hex => {
         hex.addEventListener('click', () => {
@@ -142,8 +143,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    asignarBotonCerrar(botonCerrar,vistaPregunta,panal);
     asignarBotonCerrar(botonCerrarInicial,vistaCapsula,panal);
+    asignarBotonCerrar(botonLeido,vistaCapsula,panal);
+    asignarBotonCerrar(botonCerrarPregunta,vistaPregunta,panal);
+
 });
 
 

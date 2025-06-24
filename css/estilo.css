@@ -449,7 +449,63 @@ input[type="radio"]:checked + .texto-alternativa {
 }
 /*-----------------------------------------------------------*/
 
-/*Estilo para elementos ocultos/usados */
+/*--------------- Estilo capsula informacion --------------------*/
+.vista-capsula{
+    margin: 20px auto;
+    padding:25px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border:black 1px solid;
+    border-radius:10px;
+    box-shadow: 0px 0px 10px 5px;
+    width:90vw;
+    position:relative;
+    box-sizing:border-box;
+}
+
+.titulo{
+    width: 30vw;
+    border:black 1px solid;
+    box-shadow: 0px 0px 10px 3px;
+    padding:5px;
+}
+.titulo h1{
+    font-size:25px;
+    margin:0px;
+    text-align:center;
+}
+
+.parrafo{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    padding:10px;
+    gap:15px;
+    flex-wrap:nonwrap;       
+}
+
+.texto-capsula{
+    border: black solid 1px;
+    padding: 10px;
+    flex: 1 1 auto;
+    font-size: 20px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    margin: 0;
+    min-width: 0;
+    box-shadow: 0px 0px 10px 1px;
+}
+
+.parrafo img{
+    flex: 0 0 80px;
+    height:auto;
+    object-fit:contain;
+}
+
+/*--------------- Estilo elementos ocultos/usados --------------------*/
 .oculto {
       display: none; /* Oculto por defecto */
       position: fixed;
@@ -468,3 +524,4 @@ input[type="radio"]:checked + .texto-alternativa {
     pointer-events: none;
     cursor: default;
 }
+/*-----------------------------------------------------------*/
