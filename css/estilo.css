@@ -1,0 +1,470 @@
+/*--------------- Estilo Mapa --------------------*/
+/* Estilo general del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FEFFDB; /* Color de fondo */
+}
+
+/* Estilo del encabezado */
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #FFC60B; /* Color del encabezado */
+    color: #444444; /* Color del texto */
+    font-size: 1.5em;
+}
+
+/* Estilo del contenedor del panal */
+.panal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    width: 90%;
+}
+
+/* Estilo de las columnas del panal */
+.panalColumna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+}
+
+/* Estilo de los hexágonos */
+.hexagon {
+    width: 100px;
+    height: 58px;
+    background-color: #FFC60B; /* Color base de los hexágonos */
+    margin: 5px 0;
+    clip-path: polygon(
+        50% 0%, 93% 25%, 93% 75%,
+        50% 100%, 7% 75%, 7% 25%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #444444; /* Color del texto */
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+/* Hexágono de inicio con color especial */
+.hexagon-start {
+    background-color: #FF8B00; /* Color especial para el hexágono de inicio */
+}
+
+/* Efecto hover en los hexágonos */
+.hexagon:hover {
+    background-color: #444444; /* Color al pasar el cursor */
+    color: #FEFFDB; /* Color del texto al pasar el cursor */
+    transform: scale(1.05); /* Efecto de escala */
+    cursor: pointer;
+}
+
+.hexagon.fall {
+    transform: translateY(200px) rotate(20deg);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.hex.selected {
+    z-index: 2;
+    transform: scale(1.2);
+}
+
+/* Estilo de la barra de navegación */
+.navbar {
+    background-color: #FFC60B; /* Color de fondo de la barra de navegación */
+}
+
+.navbar-brand, .nav-link {
+    color: #444444; /* Color del texto en la barra de navegación */
+}
+
+.nav-link:hover {
+    color: #FF8B00; /* Color del texto al pasar el cursor */
+}
+
+/* Estilo del menú desplegable */
+.dropdown-menu {
+    background-color: #FEFFDB; /* Color de fondo del menú desplegable */
+}
+
+.dropdown-item {
+    color: #444444; /* Color del texto */
+}
+
+.dropdown-item:hover {
+    background-color: #FFC60B; /* Color de fondo al pasar el cursor */
+    color: #FEFFDB; /* Color del texto al pasar el cursor */
+} 
+
+
+/* --- Paleta de Colores --- */
+:root {
+    --color-amarillo-claro: #FEFFDB;
+    --color-amarillo-medio: #FFC60B;
+    --color-naranja-oscuro: #FF8B00;
+    --color-gris-oscuro: #444444;
+    --color-verde-menta: #A8E6CF;
+    --color-azul-profundo: #1E3A8A;
+    --color-blanco: #FFFFFF;
+    --color-gris-claro: #E0E0E0;
+}
+
+/* --- Estilos Generales --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-amarillo-claro);
+    color: var(--color-gris-oscuro);
+    overflow-x: hidden; /* Evita el scroll horizontal en caso de desbordamiento */
+}
+
+/* --- Header Principal --- */
+.main-header {
+    background-color: var(--color-naranja-oscuro);
+    color: var(--color-blanco);
+    padding: 15px 0;
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Barra de Navegación Personalizada --- */
+.custom-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-gris-oscuro);
+    padding: 10px 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    color: var(--color-blanco);
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeÃ±as */
+}
+
+.navbar-left, .navbar-center, .navbar-right {
+    display: flex;
+    align-items: center;
+    /* Para manejar el espacio en pantallas pequeÃ±as */
+    flex-basis: auto; 
+}
+
+/* En pantallas pequeÃ±as, forzar a que ocupen todo el ancho */
+@media (max-width: 768px) {
+    .navbar-left, .navbar-center, .navbar-right {
+        flex-basis: 100%;
+        justify-content: center; /* Centrar elementos en mÃ³vil */
+        margin-bottom: 10px;
+    }
+    .navbar-right {
+        flex-wrap: wrap; /* Asegura que los contadores y botones se envuelvan */
+    }
+    .profile-pic {
+        margin-left: 0 !important; /* Elimina el margen a la izquierda en mÃ³vil */
+        margin-top: 10px; /* AÃ±ade margen arriba */
+    }
+}
+
+/* Logos */
+.logo-zumbacash, .logo-forge {
+    height: 45px;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+/* Foto de perfil */
+.profile-pic {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--color-amarillo-medio);
+    object-fit: cover;
+    margin-left: 20px;
+}
+
+/* Contadores (Coins y Puntos) */
+.counter-display {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--color-amarillo-medio);
+}
+
+.counter-label {
+    color: var(--color-blanco);
+}
+
+/* Botones de acciÃ³n (Incrementar/Decrementar Coins) */
+.btn-action {
+    background-color: var(--color-amarillo-medio);
+    color: var(--color-gris-oscuro);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-right: 10px;
+}
+
+.btn-action:hover {
+    background-color: var(--color-naranja-oscuro);
+    color: var(--color-blanco);
+    transform: translateY(-1px);
+}
+
+/* --- MenÃº Desplegable (Custom) --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: var(--color-amarillo-medio);
+    color: var(--color-gris-oscuro);
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.dropbtn:hover {
+    background-color: var(--color-naranja-oscuro);
+    color: var(--color-blanco);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--color-blanco);
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.dropdown-content a {
+    color: var(--color-gris-oscuro);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--color-gris-claro);
+    color: var(--color-azul-profundo);
+}
+
+.dropdown.show .dropdown-content {
+    display: block;
+}
+
+/*-----------------------------------------------------------*/
+
+
+/*Estilo de la pregunta*/
+/* Contenedor de la ficha de pregunta */
+.container-pregunta{
+    margin: 20px auto;
+    padding:20px;
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content:space-evenly;
+    border:black 1px solid;
+    border-radius:10px;
+    width:95%;
+    justify-self:center;
+    position:relative;
+    box-shadow: 0px 0px 10px 1px;
+}
+
+
+/* Contenedor de la pregunta y opciones */
+.total-pregunta{
+    border:1px solid black;
+    padding:15px;
+    border-radius:5px;
+    display:flex;
+    flex-direction:column;
+    margin-right:100px;
+}
+
+
+/*--------------- Estilo lateral izquierdo --------------------*/
+.lateral-izq{
+    flex:1;
+    min-width:0;
+    max-width:20vw;
+}
+
+/* TamaÃ±o de la imagen */
+.container-pregunta img{
+    width:15vw;
+}
+
+
+/*Estilo burbuja de dialogo*/
+.lateral-izq .mensaje {
+  position: relative;
+  background: #f1f1f1;
+  border: 2px solid #555;
+  border-radius: 15px;
+  padding: 10px 15px;
+  width: max-content;
+  max-width: 300px;
+  font-family: sans-serif;
+  font-size: 16px;
+  margin: 20px;
+}
+
+/* Pico abajo a la izquierda */
+.lateral-izq .mensaje::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #f1f1f1;
+  border-bottom: 0;
+  margin-left: -5px;
+}
+
+/* Pico con borde */
+.lateral-izq .mensaje::before {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 19px;
+  width: 0;
+  height: 0;
+  border: 12px solid transparent;
+  border-top-color: #555;
+  border-bottom: 0;
+  margin-left: -5px;
+}
+/*-----------------------------------------------------------*/
+
+
+/*--------------- Estilo lateral derecho --------------------*/
+.lateral-der{
+    flex:2;
+    min-width:0;
+    max-width:50vw;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+}
+
+/* Contenedor del texto de la pregunta */
+.pregunta{
+    border:black solid 1px;
+    padding:10px;
+    max-width:100%;
+    overflow:hidden;
+}
+
+.texto-pregunta{
+    font-size:30px;
+}
+
+/* Estilos de las opciones de la pregunta */
+.lista-alternativas{
+    list-style:none;
+    padding-left:0;
+}
+
+.alternativa{
+    margin:10px 0;
+    position:relative;
+}
+
+input[type="radio"]{
+    display:none;
+}
+
+.texto-alternativa{
+  display:block;
+  padding: 12px 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.texto-alternativa:hover {
+  border-color: #999;
+  background-color: #f0f0f0;
+}
+
+input[type="radio"]:checked + .texto-alternativa {
+  background-color: #2C2D34;
+  border-color: #F2910A;
+  color: #FFC60B;
+  font-weight: bold;
+}
+
+/*Estilo del boton siguiente*/
+.siguiente{
+    position:absolute;
+    bottom:15px;
+    right:15px;
+}
+
+/*Estilo boton cerrar*/
+.cerrar{
+    position:absolute;
+    right:13px;
+    top:10px;
+    z-index:999;
+    border-radius:5px;
+}
+
+.cerrar:hover{
+    color:red;
+}
+/*-----------------------------------------------------------*/
+
+/*Estilo para elementos ocultos/usados */
+.oculto {
+      display: none; /* Oculto por defecto */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border: 2px solid #333;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+}
+
+.hexagon.usado{
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: default;
+}
