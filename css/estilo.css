@@ -499,10 +499,37 @@ input[type="radio"]:checked + .texto-alternativa {
     box-shadow: 0px 0px 10px 1px;
 }
 
-.parrafo img{
-    flex: 0 0 80px;
-    height:auto;
-    object-fit:contain;
+
+/* Ajuste para las imágenes dentro de la cápsula de información */
+.vista-capsula .parrafo img {
+    max-width: 80px;      /* Limita el ancho máximo */
+    max-height: 80px;     /* Limita el alto máximo */
+    width: auto;          /* Mantiene la proporción */
+    height: auto;         /* Mantiene la proporción */
+    object-fit: contain;  /* No deforma la imagen */
+    border-radius: 10px;  /* Bordes suaves */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-left: 10px;
+    margin-right: 10px;
+    background: #fffbe7;  /* Fondo suave para destacar la imagen */
+}
+
+@media (max-width: 600px) {
+    .vista-capsula .parrafo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .vista-capsula .parrafo img {
+        margin: 10px 0;
+        max-width: 60vw;
+        max-height: 100px;
+    }
+}
+
+.boton-leido{
+    position:absolute;
+    bottom:15px;
+    right:15px;
 }
 
 /*--------------- Estilo elementos ocultos/usados --------------------*/

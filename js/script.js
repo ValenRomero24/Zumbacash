@@ -100,6 +100,26 @@ function asignarBotonCerrar(boton, vista, panal) {
     }
 }
 
+function mostrarVistaRespuestaCorrecta() {
+    const vistaRespuesta = document.querySelector('.vista-respuesta-correcta');
+    const panal = document.querySelector('.panal');
+    if (vistaRespuesta && panal) {
+        vistaRespuesta.classList.remove('oculto');
+        panal.classList.add('oculto');
+        incrementarCoins(); // Aumenta las monedas al mostrar la vista
+    }
+}
+
+
+function mostrarVistaRespuestaIncorrecta() {
+    const vistaIncorrecta = document.querySelector('.vista-respuesta-incorrecta');
+    const panal = document.querySelector('.panal');
+    if (vistaIncorrecta && panal) {
+        vistaIncorrecta.classList.remove('oculto');
+        panal.classList.add('oculto');
+        decrementarCoins(); // Resta monedas al mostrar la vista incorrecta
+    }
+}
 
 // === EVENTOS PRINCIPALES ===
 
@@ -149,4 +169,53 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+// === INTEGRACIÓN RESPUESTA CORRECTA E INCORRECTA ===
+document.addEventListener('DOMContentLoaded', function () {
+    // ...existing code...
 
+    // --- INTEGRACIÓN RESPUESTA CORRECTA E INCORRECTA ---
+    const btnSiguiente = document.querySelector('.container-pregunta .siguiente button');
+    const vistaPregunta = document.querySelector('.container-pregunta');
+    const vistaRespuestaCorrecta = document.querySelector('.vista-respuesta-correcta');
+    const vistaRespuestaIncorrecta = document.querySelector('.vista-respuesta-incorrecta');
+    const panal = document.querySelector('.panal');
+
+    if (btnSiguiente) {
+        btnSiguiente.addEventListener('click', function () {
+            const opcionB = document.getElementById('opcionB');
+            if (opcionB && opcionB.checked) {
+                // Respuesta correcta
+                vistaPregunta.classList.add('oculto');
+                mostrarVistaRespuestaCorrecta();
+            } else {
+                // Respuesta incorrecta
+                vistaPregunta.classList.add('oculto');
+                mostrarVistaRespuestaIncorrecta();
+            }
+        });
+    }
+
+    // Botón cerrar y continuar de la vista de respuesta correcta
+    const btnCerrarRespuesta = document.querySelector('.cerrar-respuesta-correcta');
+    const btnContinuarCorrecta = document.querySelector('.vista-respuesta-correcta .boton-continuar');
+    [btnCerrarRespuesta, btnContinuarCorrecta].forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', function () {
+                vistaRespuestaCorrecta.classList.add('oculto');
+                panal.classList.remove('oculto');
+            });
+        }
+    });
+
+    // Botón cerrar y continuar de la vista de respuesta incorrecta
+    const btnCerrarIncorrecta = document.querySelector('.cerrar-respuesta-incorrecta');
+    const btnContinuarIncorrecta = document.querySelector('.vista-respuesta-incorrecta .boton-continuar');
+    [btnCerrarIncorrecta, btnContinuarIncorrecta].forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', function () {
+                vistaRespuestaIncorrecta.classList.add('oculto');
+                panal.classList.remove('oculto');
+            });
+        }
+    });
+});
